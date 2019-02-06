@@ -13,5 +13,14 @@ CHIP HalfAdder {
         carry;  // Left bit of a + b
 
     PARTS:
-    // Put you code here:
+    Not(in = a, out = nota);
+    And(a = nota, b = b, out = andout1);
+
+    Not(in = b, out = notb);
+    And(a = a, b = notb, out = andout2);
+
+    Or(a = andout1, b = andout2, out = sum);
+
+    And(a = a, b = b, out = carry);
+
 }
